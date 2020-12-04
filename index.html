@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+        #app{
+            width: 100%;
+            max-width: 100%;
+            /* background-color: blue; */
+        }
+        #app p{
+            width: 100%;
+            padding: 14px;
+            background-color: blueviolet;
+            color: white;
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 22px;
+        }
+        #app select{
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            margin-bottom: 14px;
+        }
+        #app textarea{
+            width: 100%;
+            border: 2px solid rgb(138, 138, 138);
+            border-radius: 14px;
+            min-height: 140px;
+            outline: none;
+        }
+        
+    </style>
+</head>
+<body >
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand">Coder Radwan</a>
+        <a class="navbar-brand" href="#">
+            <img src="logo.jpg" style="border-radius: 50%;" width="60" height="60" class="d-inline-block align-top" alt="" loading="lazy">
+            
+          </a>
+      </nav>
+
+
+    
+    <main id="app">
+        <p>Text</p>
+        <select  id="select">
+            <option value="encode">encode</option>
+            <option value="decode">decode</option>
+        </select>
+        <textarea  id="text" ></textarea>
+
+        <p>result</p>
+        <textarea  id="result"></textarea>
+    </main>
+
+    <div class="card text-center">
+        <div class="card-header">
+          About us
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Encode & decode Website</h5>
+          <p class="card-text">By Coder Radwan</p>
+          <a href="#" class="btn btn-primary">Try our Service</a>
+        </div>
+
+      </div>
+   
+    
+    
+ 
+
+    <script>
+        // The btoa() method encodes a string in base-64.
+        // btoa() : يتم استخدامها لتشفير بيانات النصية إلى تشفير بنظام القاعدة64
+        // ----------------------------------------------------------------------------
+        // This method uses the "A-Z", "a-z", "0-9", "+", "/" and "=" characters to encode the string. 
+        // هذا عنصر يستخدم احرف اللغة الإنجليزية , الصغيرة والكبيرة , الأرقام و علامة 
+        // +  و  /  و =
+        // عندما يقوم بتشفير النص
+        //------------------------------------------------------------------------------
+        // Tip: Use the atob() method to decode a base-64 encoded string.
+        // atob() : يتم استخدام هذا العنصر لفك تشفير نص مشفر بنظام قاعدة64
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        let select = document.getElementById("select"); 
+        let textarea = document.getElementById("text"); 
+        let result = document.getElementById("result");
+
+        textarea.addEventListener("input" , ()=>{
+            make_resulte();
+        });
+
+        select.addEventListener("change" , ()=>{
+            make_resulte();
+
+        });  
+
+        function make_resulte(){
+            if(select.value == "decode"){
+                result.value = window.atob(textarea.value);
+            }else{
+                result.value = window.btoa(textarea.value);
+            }
+        }  
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+</body>
+</html>
